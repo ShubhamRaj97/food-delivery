@@ -11,3 +11,15 @@
    width: 200px;
     height: 30px;  
 }
+
+.container{
+    text-align: center;
+}
+
+.button-link{
+    border: 0;
+    margin: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    color: skyblue;
+}
