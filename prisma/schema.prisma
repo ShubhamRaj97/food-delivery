@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  
 }
 
 datasource db {
@@ -15,9 +15,15 @@ datasource db {
 }
 
 model Restaurant {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
+  id               Int      @id @default(autoincrement())
+  name             String
+  email            String   @unique
+  password         String
+  contact          String?  // Optional phone number
+  city             String
+  createdAt        DateTime @default(now())
+  address          String
+
+  @@map("restaurants") // optional: maps to "restaurants" table
 }
+
