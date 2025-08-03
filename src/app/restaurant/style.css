@@ -17,6 +17,14 @@
     text-decoration: none;
  }
 
+ .header-wrapper ul li button{
+    background-color: transparent;
+    border: none;
+    color: blueviolet;
+    font-size: 18px;
+    cursor: pointer;
+ }
+
 
  .footer-wrapper{
     position: fixed;

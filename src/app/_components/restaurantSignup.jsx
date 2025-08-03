@@ -1,4 +1,6 @@
+'use client';
 import {useState} from "react";
+import { useRouter } from 'next/navigation'; // for App Router
 
 const RestaurantSignup = ()=> {
 
@@ -9,11 +11,12 @@ const RestaurantSignup = ()=> {
     const [city, setCity] = useState('')
     const [address, setAddress] = useState('')
     const [contact, setContact] = useState('')
+    const router = useRouter();
 
 
    const handleSignup = async () => {
     try {
-        const response = await fetch('http://192.168.1.79:3001/api/restaurants', {
+        const response = await fetch('/api/restaurants', {
         method:"POST",
         headers: {
             "Content-Type": "application/json"
@@ -21,8 +24,14 @@ const RestaurantSignup = ()=> {
         body: JSON.stringify({ email, password, name, city, address, contact })
         });
 
-        const result = await response.json();
-        console.log(result);
+       const data = await response.json();
+       console.log(data);
+       if (data.success) {
+        const { restaurant } = data;
+        delete restaurant.password;
+        localStorage.setItem('restaurantUser', JSON.stringify(restaurant));
+        router.push('/restaurant/dashboard');
+      }
     } catch (error) {
         console.error("Signup failed:", error);
     }
