@@ -3,16 +3,18 @@ import RestaurantHeader from "../../_components/restaurantHeader";
 import './../style.css'
 import AddFoodItems from "../../_components/AddFoodItem";
 import { useState } from "react";
+import FooditemList from "../../_components/FoodItemList";
 
 const restaurantDashboard =()=>{
-    const [addItems, setAddItems] = useState(false)
+    const [addItem, setAddItem] = useState(false)
     return ( 
         <div> 
             <RestaurantHeader/>
-            <button>Add food</button>
-            <button>Dashboard</button>
-            <AddFoodItems/>
-            <h1>Welcome to dashboard</h1>
+            <button onClick={()=> setAddItem(true)}>Add food</button>
+            <button onClick={()=> setAddItem(false)}>Dashboard</button>
+            {
+                addItem ? <AddFoodItems/> : <FooditemList/>
+            }
         </div>
     )
 }

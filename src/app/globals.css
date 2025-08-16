@@ -23,3 +23,19 @@
     background-color: transparent;
     color: skyblue;
 }
+
+.input-error{
+    color: red;
+    position: absolute;
+    padding: 8px;
+ }
+
+ table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+ }
+
+ table td button{
+    margin: 5px;
+ }

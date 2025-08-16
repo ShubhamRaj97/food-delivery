@@ -25,13 +25,6 @@
     cursor: pointer;
  }
 
- .input-error{
-    color: red;
-    position: absolute;
-    padding: 8px;
- }
-
-
  .footer-wrapper{
     position: fixed;
     text-align: center;
